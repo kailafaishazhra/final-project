@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavbarComponent from './NavbarComponent';
+import Booklist from "./crud/booklist";
+import Crud2 from './crud2';
+import Crud from './crud/booklist';
 
-function App() {
+const App =()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        
+        <NavbarComponent />
+        <Routes>
+          <Route path='/books' element={<Crud />} />
+          <Route path='/peminjamans' element={<Crud2 />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
